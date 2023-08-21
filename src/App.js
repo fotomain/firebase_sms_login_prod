@@ -21,6 +21,7 @@ import './App.css';
 // import { ThemeProvider , createTheme , styled } from '@mui/material/styles';
 import countries from "i18n-iso-countries";
 import LoginByPhoneSms from "./comp_login_by_phone_sms/LoginByPhoneSms";
+import EntranceWithGoogle from "./with_google/EntranceWithGoogle";
 
 
 const App=()=>
@@ -36,6 +37,8 @@ const App=()=>
 
     return (
     <div className="App" style={{backgroundColor:(is_prod)?'transparent':'darkslategray'}}>
+
+        <EntranceWithGoogle />
 
         <LoginByPhoneSms
 
