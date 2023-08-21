@@ -18,6 +18,7 @@ export const sign_in_with_google = async () => {
             // Handle Errors here.
             alert('=== error '+JSON.stringify(error))
             alert('=== error.code '+JSON.stringify(error.code))
+            window.close()
             // var errorCode = error.code;
             // var errorMessage = error.message;
             // // The email of the user's account used.
