@@ -12,8 +12,17 @@ export const sign_in_with_google = async () => {
             // This gives you a Google Access Token. You can use it to access the Google API.
             // The signed-in user info.
             var user = result.user;
-            alert('=== user '+JSON.stringify(user))
-            window.close()
+
+            if (window.confirm('=== user confirm '+JSON.stringify(user)))
+            {
+                console.log('=== window.close')
+
+                window.close()
+            }
+            else
+            {
+                // They clicked no do something else.
+            }
 
         }).catch(function(error) {
             // Handle Errors here.
