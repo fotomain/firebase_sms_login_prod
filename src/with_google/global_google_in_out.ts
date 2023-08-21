@@ -13,12 +13,13 @@ export const sign_in_with_google = async () => {
             // The signed-in user info.
             var user = result.user;
             alert('=== user '+JSON.stringify(user))
+            window.close()
 
         }).catch(function(error) {
             // Handle Errors here.
             alert('=== error '+JSON.stringify(error))
             alert('=== error.code '+JSON.stringify(error.code))
-            window.close()
+
             // var errorCode = error.code;
             // var errorMessage = error.message;
             // // The email of the user's account used.
