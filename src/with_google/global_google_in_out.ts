@@ -13,9 +13,10 @@ export const sign_in_with_google = async () => {
             // The signed-in user info.
             var user = result.user;
 
+            console.log('=== user',user)
+
             if (window.confirm('=== user confirm '+JSON.stringify(user)))
             {
-                console.log('=== window.close')
 
                 window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', "_self",)
                 // window.close()
