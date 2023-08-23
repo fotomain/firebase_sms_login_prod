@@ -26,7 +26,7 @@ import EntranceWithGoogle from "./with_google/EntranceWithGoogle";
 
 const App=()=>
 
-const build_version = '123'
+const build_version = '12888'
 
 {
 
