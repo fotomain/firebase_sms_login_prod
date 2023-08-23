@@ -17,7 +17,7 @@ export const sign_in_with_google = async () => {
             {
                 console.log('=== window.close')
 
-                window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', )
+                window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', "_self",)
                 // window.close()
             }
             else
