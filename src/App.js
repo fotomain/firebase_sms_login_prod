@@ -7,7 +7,6 @@
 // craco.config
 // package.json
 
-
 // npm install -g firebase-tools
 // npm install --save-dev @types/react@latest @types/react-dom@latest
 // npm i i18n-iso-countries; npm i -D @craco/craco; npm install firebase@9.17.1 --save;  npm i react-firebase-hooks
