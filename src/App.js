@@ -26,9 +26,9 @@ import EntranceWithGoogle from "./with_google/EntranceWithGoogle";
 
 const App=()=>
 
-const build_version = '12888'
-
 {
+
+    const build_version = '123'
 
     const [input1_focused,set_input1_focused]=useState(false)
     const [phone_number,set_phone_number]=useState('')
