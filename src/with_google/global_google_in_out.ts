@@ -17,7 +17,6 @@ export const sign_in_with_google = async () => {
 
             if (window.confirm('=== user confirm '+JSON.stringify(user)))
             {
-
                 window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', "_self",)
                 // window.close()
             }
