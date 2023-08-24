@@ -20,30 +20,38 @@ export const sign_in_with_google = async () => {
             {
 
 
-                const users_auth_moment_registrator = async (params:any) => {
+                const user_auth_moment_registrator = async (params:any) => {
 
                     await setDoc(
-                        doc(db, 'users_auth_moment', params.user_data.uid)
+                        doc(db, 'users_auth_moment', params.external_auth_provider_guid)
                         ,
-                            user
+                        {
+                            user_data:JSON.stringify(params.user_data),
+                        }
                     ).then(() => {
 
-                        console.log("=== users_auth_moment_registrator OK result", )
+                        console.log("=== user_auth_moment_registrator OK result", )
                         if(params.call_back) params.call_back(params.user_data)
                         return {ret_code:'OK'}
 
                     }).catch (e =>{
                         return {ret_code:'ERR',
-                            error_name:'=== users_auth_moment_registrator',
+                            error_name:'=== user_auth_moment_registrator',
                             error_text:JSON.stringify(e)
                         }
                     })
 
                 }
 
-                users_auth_moment_registrator({user_data:user})
+                user_auth_moment_registrator({
+                    user_data:user,
+                    external_auth_provider_guid:'external_auth_provider_guid_'+Date.now().toString(),
+                    call_back:()=>{
+                        window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', "_self",)
+                    }
+                })
 
-                window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', "_self",)
+
                 // window.close()
             }
             else
