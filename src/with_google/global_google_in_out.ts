@@ -1,6 +1,7 @@
 
 import {GoogleAuthProvider, signInWithRedirect, signInWithPopup, signOut} from "firebase/auth";
-import {auth} from "./firebase-config";
+import {doc, setDoc} from "firebase/firestore";
+import {auth, db} from "./firebase-config";
 
 export const sign_in_with_google = async () => {
     const googleProvider = new GoogleAuthProvider();
@@ -17,6 +18,31 @@ export const sign_in_with_google = async () => {
 
             if (window.confirm('=== user confirm '+JSON.stringify(user)))
             {
+
+
+                const users_auth_moment_registrator = async (params:any) => {
+
+                    await setDoc(
+                        doc(db, 'users_auth_moment', params.user_data.uid)
+                        ,
+                            user
+                    ).then(() => {
+
+                        console.log("=== users_auth_moment_registrator OK result", )
+                        if(params.call_back) params.call_back(params.user_data)
+                        return {ret_code:'OK'}
+
+                    }).catch (e =>{
+                        return {ret_code:'ERR',
+                            error_name:'=== users_auth_moment_registrator',
+                            error_text:JSON.stringify(e)
+                        }
+                    })
+
+                }
+
+                users_auth_moment_registrator({user_data:user})
+
                 window.open('https://www.1188.lv/?user_guid=' + 'params.user_guid', "_self",)
                 // window.close()
             }
